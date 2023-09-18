@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-CocktailApplication<cocktail>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.yondercross.cocktail.CocktailApplication",
+            "projectName": "cocktail",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
