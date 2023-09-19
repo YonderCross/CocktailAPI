@@ -15,9 +15,9 @@ import org.springframework.web.client.RestTemplate;
  */
 @Configuration
 @RestController
-@RequestMapping("/drinks")
+@RequestMapping("/ingredients")
 @CrossOrigin(origins = "*") 
-public class CocktailController {
+public class IngredientController {
 
     /**
      * Rest template.
@@ -25,32 +25,18 @@ public class CocktailController {
      * @return the rest template
      */
     @Bean
-    RestTemplate restTemplate() {
+    RestTemplate restTemplat() {
 	    return new RestTemplate();
 	}    
-	
 	/**
 	 * Gets the drinks.
 	 *
 	 * @return the drinks
 	 */
-	@GetMapping
-	public String getDrinks() {
-		String url = "Https://www.thecocktaildb.com/api/json/v1/1/search.php?s";
-		return restTemplate().getForObject(url, String.class);	
-	}
-	
-	/**
-	 * Gets the by drink.
-	 *
-	 * @param path the path
-	 * @return the by drink
-	 */
-	@GetMapping(path= "/{drink}")
-	public String getByDrink(@PathVariable("drink") String path) {
-		String url = "Https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
-		return restTemplate().getForObject(url+path, String.class);
+	@GetMapping(path="{ingredient}")
+	public String getByIngredient(@PathVariable("ingredient") String path) {
+		String url = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=";
+		return restTemplat().getForObject(url+ path, String.class);
 		
 	}
-
 }
