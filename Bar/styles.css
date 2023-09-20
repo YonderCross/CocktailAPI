@@ -1,0 +1,27 @@
+body {
+    text-align: center;
+    background-color: blanchedalmond;
+    font-weight: bolder;
+}
+
+table{
+    display: inline;
+}
+
+td,th{
+    max-width: min-content;
+}
+
+.topnav a {
+    
+    display:inline;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+#se, #bN, #bI{
+    display: inline;
+}

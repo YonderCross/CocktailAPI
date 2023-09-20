@@ -29,7 +29,7 @@ public class IngredientController {
 	    return new RestTemplate();
 	}    
 	/**
-	 * Gets the drinks.
+	 * Gets the drinks by ingredient.
 	 *
 	 * @return the drinks
 	 */

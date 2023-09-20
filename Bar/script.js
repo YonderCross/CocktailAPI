@@ -1,15 +1,21 @@
-console.log("JS7 apifetch");
 
+//This function will fetch the api and return the data into the table filtered by name of the cocktail
 function getDrinkByName() {
-    fetch(`http://localhost:8080/drinks`)
+    const arr = new Array();
+    nom = document.getElementById("se").value;
+
+    fetch(`http://localhost:8080/drinks/${nom}`)
+
         .then((response) => response.json())
         .then((drinks) => {
-            console.log(drinks);
+
 
             let table = document.getElementById("tBody");
             tBody.innerHTML = "";
 
             for (let drink of drinks.drinks) {
+                arr.push(JSON.stringify(drink))
+
                 table.innerHTML += `
             <tr>
             <td>${drink.idDrink}</td>
@@ -46,10 +52,18 @@ function getDrinkByName() {
             console.error("Error: ", error);
             alerta(error);
         })
+        console.log(arr);
+    return arr;
+
 }
 
-function getDrinkByIngredient(ingredient) {
-    fetch(`http://localhost:8080/ingredients/vodka`)
+//This function returns all the data filtered by ingredient and posts it into the table 
+
+function getDrinkByIngredient() {
+
+    nom = document.getElementById("se").value;
+
+    fetch(`http://localhost:8080/ingredients/${nom}`)
         .then((response) => response.json())
         .then((ingredients) => {
             console.log(ingredients);
@@ -57,17 +71,20 @@ function getDrinkByIngredient(ingredient) {
             let table = document.getElementById("tBody");
             tBody.innerHTML = "";
 
+
             for (let ingredient of ingredients.drinks) {
                 table.innerHTML += `
             <tr>
-            <td>${ingredient.idDrink}</td>
-            <td>${ingredient.strDrink}</td>
+            <td id="ing">${ingredient.idDrink}</td>
+            <td id="dri">${ingredient.strDrink}</td>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
             <td><img src="${ingredient.strDrinkThumb}" class="rounded-circle" style="width: 100px"></td>
           </tr> `
+
+
             }
         })
         .catch((error) => {
@@ -75,3 +92,22 @@ function getDrinkByIngredient(ingredient) {
             alerta(error);
         })
 }
+
+
+
+function saveFav() {
+
+    console.log("se guardó")
+    //const v = getDrinkByName()
+    //console.log(JSON.stringify(v));
+    //localStorage.setItem(document.getElementById("se").value, v);
+
+
+}
+
+function showFav() {
+   // console.log(JSON.parse(localStorage.getItem('prueba')));
+   console.log("se muestra")
+
+}
+

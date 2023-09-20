@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 
 /**
- * The Class CocktailController.
+ * The Class CocktailController contains the methods to get the api.
  */
 @Configuration
 @RestController
@@ -30,7 +30,7 @@ public class CocktailController {
 	}    
 	
 	/**
-	 * Gets the drinks.
+	 * Gets all the drinks.
 	 *
 	 * @return the drinks
 	 */
@@ -41,7 +41,7 @@ public class CocktailController {
 	}
 	
 	/**
-	 * Gets the by drink.
+	 * Gets the drinks by name.
 	 *
 	 * @param path the path
 	 * @return the by drink
